@@ -15,10 +15,17 @@
 //let forsale = true;
 //let isStudent = true;
 
-let FullName = "Aman latif";
-let age = 23;
-let Student = true;
+//let FullName = "Aman latif";
+//let age = 23;
+//let Student = true;
 
-document.getElementById("p1").textContent = `your name is ${FullName}`;
-document.getElementById("p2").textContent = `you are ${age}`;
-document.getElementById("p3").textContent = `skole: ${Student}`;
+//document.getElementById("p1").textContent = `Jeg heter ${FullName}`;
+//document.getElementById("p2").textContent = `Jeg er ${age} år gammel`;
+//document.getElementById("p3").textContent = `Student?: ${Student}`;
+
+//const username = "amana";
+//const age = 23;
+
+//document.getElementById("p1").textContent = `i am ${username}`
+//document.getElementById("p2").textContent = `jeg er ${age}`
+
