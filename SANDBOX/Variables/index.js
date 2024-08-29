@@ -11,8 +11,8 @@
 //let favoriteFood = "pizza"
 //let email = "amaklatif.gmail.com"
 
-//let online = false;
-//let forsale = true;
+//let online = false
+//let forsale = true
 //let isStudent = true;
 
 //let FullName = "Aman latif";
