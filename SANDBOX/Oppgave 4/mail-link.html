@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Klikkbar mail link</title>
 </head>
 <body>
-    
+    <p id="maillink"></p>
 
     <script>
-        const Name = "Aman"
-        const emailink = "aman@gmail.com"
+        let name = "Aman"
+        let mail = "aman@gmail.com"
+
+        let emailLink =`<a href="mailto:aman@gmail.com${mail}">${name}</a>`;
+
+        document.getElementById('maillink').innerHTML = emailLink;
     </script>
+
+ 
 </body>
 </html>
