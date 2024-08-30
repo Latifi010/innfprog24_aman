@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1</title>
+</head>
+<body>
+    <p>Hei <span id="user"></span></p>
+
+    <script>
+        const firstname = "Aman"
+        
+
+        document.getElementById("user").innerHTML = firstname
+
+//1. I min siste linje, har jeg fortalt at den først sksl hente verdien som har taggen User. 
+// - i dette tilfellet så vil den først hente teksten som er nevnt under taggen user. som er Hei. FORDI InnerHTML taggen er der.
+
+//2. så kjører den vidre til taggen Firstname, verdien på den taggen er Aman. 
+
+//3. Dermed sier vi, hent først verdien som er gitt som user, i dette dokumentet. utenfor script taggen, også kjør videre å hent verdien som er 
+// - nevnt innenfor script, altså i javascript koden.
+    </script>
+</body>
+</html>

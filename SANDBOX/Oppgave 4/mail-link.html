@@ -12,11 +12,9 @@
         let name = "Aman"
         let mail = "aman@gmail.com"
 
-        let emailLink =`<a href="mailto:aman@gmail.com${mail}">${name}</a>`;
+        let emailLink =`<a href="mailto:${mail}">${name}</a>`;
 
-        document.getElementById('maillink').innerHTML = emailLink;
+        document.getElementById('maillink').innerHTML = `send ${emailLink}`;
     </script>
-
- 
 </body>
 </html>

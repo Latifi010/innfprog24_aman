@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>utrening</title>
+</head>
+<body>
+
+    <p id="average"></p>
+
+    <script>
+        let far =      37
+        let mor =      32
+        let datter =   7
+        let son =      2
+        
+        console.log(far + mor + datter + son)
+//Legger sammen alle tallene oppgitt
+        let total = (far + mor + datter + son)
+//Også forteller vi den at den totale summen skal bli market med total
+
+        console.log (total/4)
+//også forteller vi den at den at den skal dele den totale summen på 4, ved å ta total verdien /4
+
+        let average = (total/4)
+//nå har vi gitt total en verdi, nå forteller vi at den skal dele total på 4. Summen av det har vi gitt verdi average.
+
+        document.getElementById("average").innerHTML = `gjenomsnitt alder er ${average}`
+//til slutt forteller vi den at den skal skrive ut average summen, på nettsiden. da har vi en p tag, som vi har market med average.
+// - slik at den da vet hvor den skal skrive, vi legger også inn tekst vi ha, samt taggen average (som har en verdi).
+
+
+
+
+    </script>
+    
+</body>
+</html>
