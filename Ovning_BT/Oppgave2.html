@@ -9,16 +9,21 @@
     <p id="alder"></p>
 
     <script>
-      let age = 40
+      let age = 63
       let utskrift;
 
-      if (age <18){
+      if (age <18) {
         utskrift = "Du er ikke myndig"
-      } else if (age >=18 && age<=68){
+      document.getElementById("alder").innerHTML = utskrift}
+      else if (age >=18 && age<=62 ){
         utskrift = "Du er myndig og klar for studier eller arbeidslivet"
-      } else {
+        document.getElementById("alder").innerHTML = utskrift} 
+      else if (age >=62) {
         utskrift = "Du er pensjonklar"
-      } document.getElementById("alder").innerHTML=utskrift;
+       document.getElementById("alder").innerHTML = utskrift }
+      
+      
+
     </script>
     
 
