@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgacve 3</title>
+</head>
+<body>
+    <h2>Tell barna</h2>
+
+    <p id="alder"></p>
+
+    
+    <script>
+        let barn1 = "Gutt"
+        let barn2 = "Gutt"
+        let barn3 = "Jente"
+
+        let antall_gutter = 0
+        let antall_jenter = 0
+
+        let utskrift
+
+        if (barn1 === "Gutt") {
+            antall_gutter +=1
+        } else {
+            antall_jenter +=1
+        } 
+
+        if (barn2 === "Gutt") {
+            antall_gutter +=1
+        } else { 
+            antall_jenter -=1
+        }
+
+        if (barn3 === "Jente") {
+            antall_jenter +=1 
+        } else {
+            antall_jenter -=1
+        }
+
+        document.getElementById("alder").innerHTML = "Antall gutter " + antall_gutter + " Antall Jenter " + antall_jenter
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

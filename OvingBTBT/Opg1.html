@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1</title>
+</head>
+<body>
+    <h2>If test </h2>
+    <p id="navn"></p>
+
+    <script>
+        let name = "Aman"
+        let utskrift;
+
+        if (name === "Aman") {
+            utskrift = "Mitt navn er " + name + " Latif"
+        } else { 
+            utskrift = "mitt navn er ikke " + name + " Latif"
+        }
+
+        document.getElementById("navn").innerHTML = utskrift;
+
+    </script>
+</body>
+</html>
