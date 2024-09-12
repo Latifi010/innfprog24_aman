@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3</title>
+</head>
+<body>
+    <p id="utskrift">Antall dyr: X</p>
+
+    <script>
+        let dyrearter = ["løve","elefant","isbjørn","kengru","delfin", "giraff","pigvin","tiger","koala","kenguru"]
+
+        dyrearter.push ("Flodhest","Krokodille")
+
+        dyrearter.sort()
+
+        let antallDyr = dyrearter.length
+
+        document.getElementById("utskrift").innerHTML = `Antall dyr: ${antallDyr}. 
+        ${dyrearter[0]}, ${dyrearter[1]}, ${dyrearter[2]}, ${dyrearter[3]}, ${dyrearter[4]}, ${dyrearter[5]}
+        ${dyrearter[6]}, ${dyrearter[7]}, ${dyrearter[8]}, ${dyrearter[9]}, ${dyrearter[10]}, ${dyrearter[11]},`
+        
+    
+
+        
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arryer</title>
+</head>
+<body>
+    <ul id="profiles"></ul>
+
+    <script>
+        const literbikes = [{name:"R1", color: "black", power:"198"},
+                            {name:"S1K", color: "M-color", power:"210"},
+                            {name:"RSV4", color: "black", power:"217"},
+                            {name:"GSXR", color: "Hvite", power:"202"},
+                            {name:"H2R", color: "black", power:"310"}]
+
+        literbikes.push({name:"ZX-10R", color: "green", power: "203"})
+
+        //literbikes.splice(1, 2)
+
+            //(Denne metoden ble ikke brukt i timen, Brukte .map i timen isteden)
+        // literbikes.forEach(bike => console.log((bike.name)))
+
+ // -----------------------------------------.Map-----------------------------------------       
+//        const bikename  = literbikes.map(bike => bike.name)
+//        const bikecolor = literbikes.map(bike => bike.color)
+//        const bikepower = literbikes.map(bike => bike.power)
+
+//       console.log(bikename)
+//       console.log(bikecolor)
+//       console.log(bikepower)
+
+            // Denne skriver ut navn, color, power, som tekst. 
+ //       document.getElementById("names").innerHTML = bikecolor
+
+
+
+ literbikes.map(bikename => document.getElementById("profiles").innerHTML += 
+
+    `<li> ${bikename.name}
+         <ul>
+            ${bikename.power}
+        </ul>
+        <ul> 
+            ${bikename.color}    
+        </ul>
+    </li>`)
+
+
+
+//------------------------------------.Filter----------------------------------------
+
+//const blackbikes = literbikes.filter(bike => bike.color === "black")
+//const lowpowerbikes = literbikes.filter(bike => bike.power <200) 
+//const superbikes = literbikes.filter(bike => bike.power >300)
+
+//console.log(blackbikes)
+//console.log(lowpowerbikes)
+//console.log(superbikes)
+
+
+        
+    </script>
+    
+</body>
+</html>
+
