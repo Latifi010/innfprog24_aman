@@ -42,11 +42,18 @@
         /* 
         (algoritismsk tankegang)
             Vi skal skrive ut hver forleser i arryen som et listepunkt <li>
+            !! Før vi skriver ut arrayen, skal vi filtrere vekk forlesere født før 1990.
+            !! Vi må gå igjennom hele arrayen, med et filter: .filter 
+            !! Når vi kjører .filter, må vi mellom lagre et element med variabel: lecturer 
+            !! For hver lecturer må vi gjøre en sammenligning (akkuratt som en if-betingelse)
+            !! I dette tilfellet; er birthyer større eller lik 1990 skal forleseren inkluderes
+            --! Etter vi har filtret skal vi skrive ut de gjenværende forleserne
+
             Vi må gå igjennom hele arryen, det gjør vi med metoden .map
             Når vi mapper, må vi mellomlagre element i en variabel: lecturer
             For hver lecturer må vi legge til en <li> i <ul id="profiles">
         */
-       lecturers.map(lecturer => document.getElementById("profiles").innerHTML += `<li>${lecturer.personname} 
+       lecturers.filter(lecturer => lecturer.birthyear >= 1990).map(lecturer => document.getElementById("profiles").innerHTML += `<li>${lecturer.personname} 
             <ul>
                 ${lecturer.courses.map(course => `<li>${course}</li>`).join("")}
             </ul> 
