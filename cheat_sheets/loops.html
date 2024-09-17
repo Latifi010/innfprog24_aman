@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops cheat sheet forlesning 17.09.24</title>
+</head>
+<body>
+    <h1>Regn ut summen av alle tall mellom to tall<span id="Start">X</span> og<span id="Stopp">Y</span> </h1>
+    <p id="Utrening"></p>
+    <h1>Vis alle tall som er delelig på <span id="deltall">Z</span>Mellom <span id="delstart">X
+
+    <script>
+        /*
+            For-løkke trenger 3 parametere:
+            1) Startpunkt (hvor løkka starter å telle)
+            2) Stopp-punkt 
+            3) Utrening av teller (sørger for at vi kommer til stopp-punkt)
+        */
+       for(let teller = 1; teller <= 10; teller++) {
+        console.log(teller)
+       }
+
+       //While-løkker: 
+
+       let whileteller = 3
+
+       while(whileteller < 15) {
+        console.log("Jeg kjører fortsatt" + whileteller)
+        whileteller++
+       }
+
+       // Utrening av alle tall mellom X og Y
+       const x = 1
+       const y = 50
+       let sum = 0
+
+       document.getElementById("Start").innerHTML = x
+       document.getElementById("Stopp").innerHTML = y
+
+       for(let teller = x; teller += y; teller++) {
+        sum += teller
+        if(teller === y) {
+           document.getElementById("Utrening").innerHTML += teller + " = " + sum
+        } else {
+            document.getElementById("Utrening").innerHTML += teller + " + "
+        }
+       } 
+
+       //Vis heletall som er deleige på Z
+
+       const z = 7
+
+       document.getElementById("delstart").innerHTML = x
+       document.getElementById("delstopp").innerHTML = y
+       document.getElementById("deltall").innerHTML = z
+
+
+
+
+       for(let teller = x; teller <= y; teller ++) {
+        if(teller % z === 0) {
+            document.getElementById("delresultater").innerHTML += teller + ", "
+        }
+       } 
+    </script>
+</body>
+</html>
