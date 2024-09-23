@@ -6,9 +6,10 @@
     <title>Loops cheat sheet forlesning 17.09.24</title>
 </head>
 <body>
-    <h1>Regn ut summen av alle tall mellom to tall<span id="Start">X</span> og<span id="Stopp">Y</span> </h1>
-    <p id="Utrening"></p>
-    <h1>Vis alle tall som er delelig på <span id="deltall">Z</span>Mellom <span id="delstart">X
+    <h1>Regn ut summen av alle tall mellom <span id="start">X</span> og <span id="stopp">Y</span></h1>
+    <p id="utregning"></p>
+    <h1>Vis alle heltall som er delelig på <span id="deltall">Z</span> mellom <span id="delstart">X</span> og <span id="delstopp">Y</span></h1>
+    <p id="delresultater"></p>
 
     <script>
         /*
@@ -31,21 +32,21 @@
        }
 
        // Utrening av alle tall mellom X og Y
-       const x = 1
-       const y = 50
+       const x = 9
+       const y = 200
        let sum = 0
 
-       document.getElementById("Start").innerHTML = x
-       document.getElementById("Stopp").innerHTML = y
+       document.getElementById("start").innerHTML = x
+       document.getElementById("stopp").innerHTML = y
 
-       for(let teller = x; teller += y; teller++) {
+       for(let teller = x; teller <= y; teller++) {
         sum += teller
         if(teller === y) {
-           document.getElementById("Utrening").innerHTML += teller + " = " + sum
+            document.getElementById("utregning").innerHTML += teller + " = " + sum
         } else {
-            document.getElementById("Utrening").innerHTML += teller + " + "
+            document.getElementById("utregning").innerHTML += teller + " + "
         }
-       } 
+       }
 
        //Vis heletall som er deleige på Z
 
@@ -58,11 +59,11 @@
 
 
 
-       for(let teller = x; teller <= y; teller ++) {
+       for(let teller = x; teller <= y; teller++) {
         if(teller % z === 0) {
             document.getElementById("delresultater").innerHTML += teller + ", "
         }
-       } 
+       }
     </script>
 </body>
 </html>
