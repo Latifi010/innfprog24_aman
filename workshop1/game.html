@@ -76,29 +76,28 @@
     <script>
         //PREPARE GAME CONFIG AND VARIABLES
         //TODO: config
-        
         const gameConfig = {
-            playerName: "",
+            player: "Aman",
             energy: 5,
-            points: 4000,
-            duration: 1380
+            points: 10,
+            duration: 138
         }
+      
         //TODO: notebook
         const notebook = {
-            variables: 12,
-            arrays: 123,
-            loops: 45,
-            functions: 67
+            variables: 1,
+            arrays: 2,
+            loops: 3,
+            functions: 4
+        }
+        //TODO: print playerinfo to HTML
+        if(gameConfig.player ===""){
+            document.getElementById("playerName").innerHTML = "wating for player...."
+        } else {
+            document.getElementById("playerName").innerHTML = gameConfig.player
         }
 
-        //TODO: print playerinfo to HTML
-        if(gameConfig.playerName === "") {
-                document.getElementById("playerName").innerHTML = "Waiting for player..."
-            } else {
-                document.getElementById("playerName").innerHTML = gameConfig.playerName
-            }
-
-        document.getElementById("energy").innerHTML = gameConfig.energy
+        document.getElementById("energy").innerHTML  = gameConfig.energy
         document.getElementById("points").innerHTML = gameConfig.points
         document.getElementById("duration").innerHTML = gameConfig.duration
 
@@ -107,6 +106,8 @@
         document.getElementById("array").innerHTML = notebook.arrays
         document.getElementById("loop").innerHTML = notebook.loops
         document.getElementById("funksjoner").innerHTML = notebook.functions
+
+      
         //(BONUS) TODO: function for all prints
         
     </script>
