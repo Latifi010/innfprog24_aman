@@ -205,11 +205,24 @@
 
             if(rundenVunnet === true) {
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
+                /*
+                document.getElementById("playerturn") - Referer til elementet med id playerturn.
+                .style.backgroundColor - Brukes til å endre stilen til et element, bakgrunnsfargen i dette tilfellet.
+                (Jeg bruker .style.backgroundColor istedenfor .innerHTML, da innerHTML blir brukt til å endre innholdet i et element.)
+                #FFD700 - heksadesimal koden som er oppgitt i oppgaveteksten.
+                */
+                document.getElementById("playerturn").style.backgroundColor = "#FFD700";
                 document.getElementById("newgame").style.display = "block";
                 spillStatus = false;
             }
         }
-
+                /*
+                Ettersom vi ikke ønsker å ha en konstant gullfarge, når vi starter et nytt spill.
+                Må vi legge til en linje i restartGame funksjonen, som sørger for at bakgrunnsfargen -
+                til elementet med id playerturn nullstilles på lik linje som alt annet.
+                Jeg setter så .style.backgroundColor = ""; - til en tom streng. Ettersom det er den mest effektive metoden.
+                Kan på lik linje også bruke "initial" - til å sette default verdi. 
+                */
         function restartGame() {
             spillerBrikker = ["","","","","","","","",""];
             var celleteller = 0;
@@ -221,6 +234,7 @@
             player = 1;
             playermark = "X";
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
+            document.getElementById("playerturn").style.backgroundColor = "";
         }
     </script>
 </body>
