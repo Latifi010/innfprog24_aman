@@ -155,8 +155,9 @@
                         document.getElementById("playerturn").innerHTML = "Uavgjort! Ingen vant...";
                         spillStatus = false;
                     }
-                    
-                    sjekkVinner();
+ 
+                    //Satte inn sjekkVinner, i funskjonen oppgitt i oppgaveteksten. - Gir en forsinkelse på 1 sekund.
+                    setTimeout(function(){sjekkVinner();},1000);
 
                 }   else {
                     alert("Denne cellen er opptatt. Vennligst velg en annen celle");
@@ -183,6 +184,7 @@
 
         function sjekkVinner() {
             var rundenVunnet = false;
+            var vinnerKombo //* variabelen for vinnerkombinasjon.
 
             for(var combination = 0; combination <= 7; combination++) {
                 var vinnerKomboPlass1 = winningCombos[combination][0]; 
@@ -198,6 +200,7 @@
                 }
  
                 if(brikke1 === brikke2 && brikke2 === brikke3) {
+                    vinnerKombo = winningCombos[combination]; // Setter vinnerkombinasjon til kombinasjonen som har vunnet.
                     rundenVunnet = true;
                     break;
                 }
@@ -209,11 +212,14 @@
                 document.getElementById("playerturn") - Referer til elementet med id playerturn.
                 .style.backgroundColor - Brukes til å endre stilen til et element, bakgrunnsfargen i dette tilfellet.
                 (Jeg bruker .style.backgroundColor istedenfor .innerHTML, da innerHTML blir brukt til å endre innholdet i et element.)
-                #FFD700 - heksadesimal koden som er oppgitt i oppgaveteksten.
                 */
                 document.getElementById("playerturn").style.backgroundColor = "#FFD700";
                 document.getElementById("newgame").style.display = "block";
                 spillStatus = false;
+
+                vinnerKombo.forEach(function(celle) {
+                document.getElementById("celle" + celle).style.color = "#FFD700";
+                }); // Bruker forEach til å endre fargen på vinnerkombinasjonen. 
             }
         }
                 /*
@@ -228,13 +234,14 @@
             var celleteller = 0;
             while (celleteller < 9) {
                 document.getElementById("celle" + celleteller).innerHTML = "";
+                document.getElementById("celle" + celleteller).style.color = ""; //*
                 celleteller++;
             }
             spillStatus = true;
             player = 1;
             playermark = "X";
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
-            document.getElementById("playerturn").style.backgroundColor = "";
+            document.getElementById("playerturn").style.backgroundColor = ""; //* Velger å sette linjen utenfor while-løkken, da det er mer effektivt.
         }
     </script>
 </body>
