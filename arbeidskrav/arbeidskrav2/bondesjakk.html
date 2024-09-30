@@ -12,14 +12,12 @@
             background: #ccc;
             font-family: Helvetica;
         }
-        
-        body>* {
+        body>*{
             box-sizing: border-box;
             padding: 0;
             margin: 0;
         }
-
-        #playerturn {
+        #playerturn{
             color: #34495e;
             font-size: 3em;
             margin: 20px auto;
@@ -68,6 +66,14 @@
             color: white;
             cursor: pointer;
         }
+
+        #boks { 
+            width: 600px;
+            margin: 0 auto;
+            border: 5px solid #010a13;
+            text-align: center;
+            font-size: 2em;
+        }
     </style>
 </head>
 <body>
@@ -83,12 +89,19 @@
         <div id="celle7" class="celle"></div>
         <div id="celle8" class="celle"></div>
     </section>
+
+    <section id="boks"> <!-- boks id`n, brukes til styling i med CSS. -->
+        Antall spill: <span id="antallSpill">1</span>
+    </section>
+
     <button id="newgame" onclick="restartGame()">Start spill på nytt</button>
 
     <script>
         var spillStatus = true;
         var player = 1;
         var playermark = "X";
+        var antallSpill = 1; //*lagt til variabel for antall spill
+
          // Feil bruk av tegnsetting, byttet ut : til ;
         document.getElementById("player").innerHTML = player;
         document.getElementById("playermark").innerHTML = playermark;
@@ -218,7 +231,7 @@
                 spillStatus = false;
 
                 vinnerKombo.forEach(function(celle) {
-                document.getElementById("celle" + celle).style.color = "#FFD700";
+                document.getElementById("celle" + celle).style.color = "#FFD700"; //Prøvde først å gjøre dette med brikkenes id gamearea, men det byttet farge på alle brikker.
                 }); // Bruker forEach til å endre fargen på vinnerkombinasjonen. 
             }
         }
@@ -242,6 +255,9 @@
             playermark = "X";
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
             document.getElementById("playerturn").style.backgroundColor = ""; //* Velger å sette linjen utenfor while-løkken, da det er mer effektivt.
+
+            antallSpill++ //* Øker antall spill med 1, hver gang funksjonen kjøres.
+            document.getElementById("antallSpill").innerHTML = antallSpill; //* Oppdaterer antall spill på nettsiden. 
         }
     </script>
 </body>
