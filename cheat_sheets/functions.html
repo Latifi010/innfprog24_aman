@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funskjoner</title>
+</head>
+<body>
+    <p>Aman Latif, e-post: <span id="emailcontainer"></span></p>
+
+    <script>
+        function myFirstFunction() {
+            console.log("Hei, kjører min første funksjon")
+        }
+        //kjøre (kalle) funksjonen
+        myFirstFunction()
+
+        //deklarerer en funksjon med en parameter
+        function printName(name) {
+            console.log("jeg heter "+ name)
+        }
+
+        printName("Aman")
+
+        //deklarerer en funksjon med en parameter, som har en stanardverdi
+        function printDefualtName(name = "") {
+            console.log("jeg heter "+ name)
+        }
+
+        printDefualtName("også Aman,")
+
+
+        //lage en funskjon med en e-post som link (template string)
+        function createEmailLink(email = "") {
+            if (!email) {
+                return "E-post ikke oppgitt"
+            }
+            return `<a href="mailto:${email}">${email}</a>` 
+        }
+
+        console.log(createEmailLink("aman@gmail.com"))
+        
+        document.getElementById("emailcontainer").innerHTML = createEmailLink("toremake@hiof.no") 
+    </script>
+    
+</body>
+</html>
