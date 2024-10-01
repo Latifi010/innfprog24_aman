@@ -25,7 +25,6 @@
             padding: 10px;
             border-radius: 5px;
         }
-
         #gamearea {
             width: 600px;
             height: 600px;
@@ -35,9 +34,8 @@
             border: 6px solid #2c3e50;
             border-radius: 10px;
             display: grid;
-            grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+            grid-template: repeat(4, 1fr) / repeat(4, 1fr); /*Endret fra 3 til 4*/
         }
-
         .celle {
             border: 6px solid #2c3e50;
             border-radius: 2px;
@@ -47,7 +45,6 @@
             justify-content: center;
             align-items: center;
         }
-
         #newgame {
             width: 300px;
             padding: 20px;
@@ -60,13 +57,11 @@
             font-size: 2rem;
             display: none;
         }
-
         #newgame:hover {
             background: #364e01;
             color: white;
             cursor: pointer;
         }
-
         #boks { 
             width: 600px;
             margin: 0 auto;
@@ -88,6 +83,13 @@
         <div id="celle6" class="celle"></div>
         <div id="celle7" class="celle"></div>
         <div id="celle8" class="celle"></div>
+        <div id="celle9" class="celle"></div>
+        <div id="celle10" class="celle"></div>
+        <div id="celle11" class="celle"></div>
+        <div id="celle12" class="celle"></div>
+        <div id="celle13" class="celle"></div>
+        <div id="celle14" class="celle"></div>
+        <div id="celle15" class="celle"></div> <!--Siden vi skal gå fra 3x3 til 4x4, har jeg endret fra 9 til 16 celler, samt oppdatert CSS-->
     </section>
 
     <section id="boks"> <!-- boks id`n, brukes til styling i med CSS. -->
@@ -108,18 +110,25 @@
 
         var antallSpill = 1;
 
+        //Her må vi oppdatere vinnerkombinasjonene, jeg tegnet opp et 4x4 brett og skrev ned følgende vinnerkombinasjoner
         var winningCombos = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
+            //Vanrett vinnerkombinasjoner
+            [0, 1, 2, 3], //første rad
+            [4, 5, 6, 7], // andre rad
+            [8, 9, 10, 11], //tredje rad 
+            [12, 13, 14, 15],// fjerde rad
+
+            //Loddrett vinnerkombinasjoner
+            [0, 4, 8, 12], //første kolonne
+            [1, 5, 9, 13], //andre kolonne
+            [2, 6, 10, 14], //tredje kolonne
+            [3, 7, 11, 15], //fjerde kolonne
+            
+            [0, 5, 10, 15], //Skrå ned fra venstre 
+            [3, 6, 9, 12] //Skrå ned fra høyre
         ];
 
-        var spillerBrikker = ["","","","","","","","",""];
+        var spillerBrikker = ["","","","","","","","","","","","","","","",""]; // Array for spillerbrikkene, endret fra 9 til 16.
 
         document.getElementById("celle0").addEventListener("click", function() {
             spill(0);
@@ -149,13 +158,34 @@
         document.getElementById("celle8").addEventListener("click", function() {
             spill(8);
         });
-        
+        document.getElementById("celle9").addEventListener("click", function() {
+            spill(9);
+        });
+        document.getElementById("celle10").addEventListener("click", function() {
+            spill(10);
+        });
+        document.getElementById("celle11").addEventListener("click", function() {
+            spill(11);
+        });
+        document.getElementById("celle12").addEventListener("click", function() {
+            spill(12);
+        });
+        document.getElementById("celle13").addEventListener("click", function() {
+            spill(13);
+        });
+        document.getElementById("celle14").addEventListener("click", function() {
+            spill(14);
+        });
+        document.getElementById("celle15").addEventListener("click", function() {
+            spill(15);
+        });
+        //utvidet fra 9 til 16, for å dekke alle cellene i 4x4 brettet.
+
         function spill(celle) {
             if(spillStatus === true) {
                 var cellSpace = document.getElementById("celle"+celle).innerHTML;
                 // Skrivefeil på linje 143, (ifff). Riktig: (if)
                 if(cellSpace === "") {
-
                     if (player === 1) {
                         document.getElementById("celle"+celle).innerHTML = "X";
                         spillerBrikker[celle] = "X";
@@ -163,12 +193,10 @@
                         document.getElementById("celle"+celle).innerHTML = "O";
                         spillerBrikker[celle] = "O";
                     }
-
                     if(!spillerBrikker.includes("")) {
                         document.getElementById("playerturn").innerHTML = "Uavgjort! Ingen vant...";
                         spillStatus = false;
                     }
- 
                     //Satte inn sjekkVinner, i funskjonen oppgitt i oppgaveteksten. - Gir en forsinkelse på 1 sekund.
                     setTimeout(function(){sjekkVinner();},1000);
 
@@ -197,23 +225,25 @@
 
         function sjekkVinner() {
             var rundenVunnet = false;
-            var vinnerKombo //* variabelen for vinnerkombinasjon.
+            var vinnerKombo // variabelen for vinnerkombinasjon.
 
-            for(var combination = 0; combination <= 7; combination++) {
+            for(var combination = 0; combination <= 9; combination++) { //lagt til de nye kombinasjonene
                 var vinnerKomboPlass1 = winningCombos[combination][0]; 
                 var vinnerKomboPlass2 = winningCombos[combination][1];
                 var vinnerKomboPlass3 = winningCombos[combination][2];
+                var vinnerKomboPlass4 = winningCombos[combination][3]; // lagt til Vinnerkomboplass4, slik at nye cellene blir tatt med.
 
                 var brikke1 = spillerBrikker[vinnerKomboPlass1]; 
                 var brikke2 = spillerBrikker[vinnerKomboPlass2];
                 var brikke3 = spillerBrikker[vinnerKomboPlass3];
+                var brikke4 = spillerBrikker[vinnerKomboPlass4]; // lagt til brikke4, slik at nye celler blir tatt med.
 
-                if(brikke1 === "" || brikke2 === "" || brikke3 === "") {
+                if(brikke1 === "" || brikke2 === "" || brikke3 === "" || brikke4 === "") { //brikke 4 lagt til.
                     continue;
                 }
  
-                if(brikke1 === brikke2 && brikke2 === brikke3) {
-                    vinnerKombo = winningCombos[combination]; // Setter vinnerkombinasjon til kombinasjonen som har vunnet.
+                if(brikke1 === brikke2 && brikke2 === brikke3 && brikke3 === brikke4) { //Lik logikk her også: hvis b1 er det samme som b2, og b2 er det samme som b3, og b3 er det samme som b4, er alle like og vi har en vinnerkombinasjon.
+                    vinnerKombo = winningCombos[combination]; // Setter vinnerkombinasjon til kombinasjonen som har vunnet. Slik at jeg da senere kan kan lage en funskjon med vinnerKombo, som enderer farge. 
                     rundenVunnet = true;
                     break;
                 }
@@ -232,8 +262,8 @@
 
                 vinnerKombo.forEach(function(celle) {
                 document.getElementById("celle" + celle).style.color = "#FFD700"; //Prøvde først å gjøre dette med brikkenes id gamearea, men det byttet farge på alle brikker.
-                }); // Bruker forEach til å endre fargen på vinnerkombinasjonen. 
-            }
+                }); // Bruker forEach til å endre fargen på vinnerkombinasjonen. Prøvde først å bruke if else her, men det ga for mange feilmeldinger i consolen.
+            }  //Ved bruk av foreach her, blir alle elementene i arryen hentet. 
         }
                 /*
                 Ettersom vi ikke ønsker å ha en konstant gullfarge, når vi starter et nytt spill.
@@ -243,9 +273,9 @@
                 Kan på lik linje også bruke "initial" - til å sette default verdi. 
                 */
         function restartGame() {
-            spillerBrikker = ["","","","","","","","",""];
+            spillerBrikker = ["","","","","","","","","","","","","","","","",]; //Nullstiller de nye spillerbrikkene også.
             var celleteller = 0;
-            while (celleteller < 9) {
+            while (celleteller < 16) { // oppdatert while loopen fra 9 til 16, slik den går gjennom de nye cellene. 
                 document.getElementById("celle" + celleteller).innerHTML = "";
                 document.getElementById("celle" + celleteller).style.color = ""; //*
                 celleteller++;
@@ -257,7 +287,8 @@
             document.getElementById("playerturn").style.backgroundColor = ""; //* Velger å sette linjen utenfor while-løkken, da det er mer effektivt.
 
             antallSpill++ //* Øker antall spill med 1, hver gang funksjonen kjøres.
-            document.getElementById("antallSpill").innerHTML = antallSpill; //* Oppdaterer antall spill på nettsiden. 
+            document.getElementById("antallSpill").innerHTML = antallSpill; 
+            /* Hver gang restartGame kjøres, oppdateres antall spill (span id,n til antallspill). Tallet som blir vist i section boksen under brettet, */
         }
     </script>
 </body>
