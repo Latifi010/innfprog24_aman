@@ -107,8 +107,28 @@
         document.getElementById("loop").innerHTML = notebook.loops
         document.getElementById("funksjoner").innerHTML = notebook.functions
 
-      
-        //(BONUS) TODO: function for all prints
+    
+        function toggleVisibility(elementid) {
+            
+            const info = document.getElementById(elementid)
+            if(info.classList.contains("hidden")) {
+                info.style.display = "none"
+                info.classList.remove("hidden")
+            } else {
+                info.style.display = "none"
+                info.classList.add("hidden")
+            }
+        }
+        
+        document.addEventListener("keydown", function(event){
+            if(event.key === "n"){
+                toggleVisibility("notebook")
+
+            } else if(event.key === "i"){
+                toggleVisibility("info")
+            }
+        })
+
         
     </script>
 </body>
