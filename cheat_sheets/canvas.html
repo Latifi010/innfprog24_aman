@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        body{
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawingarea"></canvas>
+
+    <script>
+        //standard config av canvas
+        const canvas = document.getElementById("drawingarea")
+        canvas.width = 800
+        canvas.height = 600
+        const ctx = canvas.getContext("2d")    
+        
+        //Path
+        ctx.beginPath()
+            ctx.moveTo(0,0)
+            ctx.lineTo(800,600)
+            ctx.stroke()    
+        ctx.closePath()
+
+        //Rectangles (RECT)
+        ctx.beginPath()
+            ctx.rect(100, 100, 200, 200)
+            ctx.fillStyle = "green"
+            ctx.fill()
+            ctx.stroke()
+        ctx.closePath()
+        //.fillRect() - Fyller firekanten
+        //.strokeRect() - Legger farge til rundt
+
+       //ctx.clearRect(0, 0, canvas.width, canvas.height) - Tømmer canvaset for firekanten. 
+
+        //Circles (ARC)
+        ctx.beginPath()
+            ctx.arc(400, 400, 100, 0, Math.PI * 2)
+            ctx.fillStyle = "yellow"
+            ctx.fill() 
+            ctx.stroke()
+        ctx.closePath()
+
+        //Text
+        ctx.beginPath()
+            ctx.font = "150px Georgia"
+            ctx.strokeText("5", 360, 420)
+            ctx.font = ("24px Arial")
+            ctx.fillStyle = "Aqua"
+            ctx.fillText("Aman", 380, 100)
+        ctx.closePath()
+
+        //Tegn et eksiterende bilde inn i Canvas.
+        const pumpkin = new Image()
+        let pumpkinLoaded = false 
+        pumpkin.onload = () => {pumpkinLoaded = true}
+        pumpkin.src = "pumpkin.png"
+        pumpkinLoaded ? ctx.drawImage(pumpkin, 600, 50) :null
+
+    </script>
+</body>
+</html>
